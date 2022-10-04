@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { StatusBar } from 'react-native'
 import { View } from "react-native";
 import "react-native-gesture-handler";
 import { ThemeProvider } from "styled-components";
@@ -56,6 +57,7 @@ export default function App() {
     <View onLayout={onLayout} style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
+          <StatusBar barStyle="light-content"/>
           <AppRoutes />
         </NavigationContainer>
       </ThemeProvider>
