@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { View } from "react-native";
+import "react-native-gesture-handler";
 import { ThemeProvider } from "styled-components";
+import "intl";
+import "intl/locale-data/jsonp/pt-BR";
 
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
+
+import { NavigationContainer } from "@react-navigation/native";
+import { AppRoutes } from "./src/routes/app.routes";
 
 import {
   Poppins_400Regular,
@@ -12,9 +18,6 @@ import {
 } from "@expo-google-fonts/poppins";
 
 import theme from "./src/global/styles/theme";
-import { Dashboard } from "./src/screens/Dashboard";
-import { Register } from "./src/screens/Register";
-import { CategorySelected } from "./src/screens/CategorySelect";
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -52,7 +55,9 @@ export default function App() {
   return (
     <View onLayout={onLayout} style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
-        <Register />
+        <NavigationContainer>
+          <AppRoutes />
+        </NavigationContainer>
       </ThemeProvider>
     </View>
   );
