@@ -12,6 +12,7 @@ import { addMonths, subMonths, format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 import { useTheme } from "styled-components";
+import { useAuth } from "../../hooks/auth";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import {
@@ -53,6 +54,8 @@ export function Resulme() {
     []
   );
 
+  const { user } = useAuth()
+
   const theme = useTheme();
 
   function handleDateChange(action: "next" | "prev") {
@@ -65,7 +68,7 @@ export function Resulme() {
 
   async function loadData() {
     setIsLoading(true);
-    const dataKey = "@gofinances:transactions";
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
     const response = await AsyncStorage.getItem(dataKey);
     const responseFormatted = response ? JSON.parse(response) : [];
 

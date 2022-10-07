@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { StatusBar } from 'react-native'
+import { StatusBar } from "react-native";
 import { View } from "react-native";
 import "react-native-gesture-handler";
 import { ThemeProvider } from "styled-components";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
 
+import { AuthProvider, useAuth } from "./src/hooks/auth";
+
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 
-import { NavigationContainer } from "@react-navigation/native";
-import { AppRoutes } from "./src/routes/app.routes";
+import { Routes } from "./src/routes";
 
 import {
   Poppins_400Regular,
@@ -21,6 +22,8 @@ import {
 import theme from "./src/global/styles/theme";
 
 export default function App() {
+  const { userStoregeLoading } =  useAuth()
+
   const [appIsReady, setAppIsReady] = useState(false);
   useEffect(() => {
     async function prepare() {
@@ -44,7 +47,7 @@ export default function App() {
   }, []);
 
   const onLayout = useCallback(async () => {
-    if (appIsReady) {
+    if (appIsReady || userStoregeLoading) {
       await SplashScreen.hideAsync();
     }
   }, [appIsReady]);
@@ -56,10 +59,10 @@ export default function App() {
   return (
     <View onLayout={onLayout} style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <StatusBar barStyle="light-content"/>
-          <AppRoutes />
-        </NavigationContainer>
+        <StatusBar barStyle="light-content" />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
       </ThemeProvider>
     </View>
   );
