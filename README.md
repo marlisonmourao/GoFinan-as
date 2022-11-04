@@ -10,7 +10,7 @@
 <br>
 
 <p align="center">
-  <img alt="rocketpay" src=".github/logo.png" width="100%">
+  <img alt="capa" src=".github/logo.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -59,7 +59,7 @@ $ code .
 <br>
 <br>
 
-<p align="center"><img height="300px" alt="Logo RentX" src="./prtScn/computer.png" /></p>
+<p align="center"><img height="300px" alt="Logo RentX"  src=".github/computer.png" /></p>
 <br>
 <br>
 
