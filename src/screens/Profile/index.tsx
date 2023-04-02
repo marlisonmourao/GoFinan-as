@@ -3,13 +3,22 @@ import { View, Text, TextInput, Button } from 'react-native'
 export function Profile() {
   return (
     <View>
-      <Text>Perfil</Text>
+      <Text testID="title">Perfil</Text>
 
-      <TextInput placeholder="Nome" autoCorrect={false} />
+      <TextInput 
+        testID="input-name" 
+        placeholder="Nome" 
+        autoCorrect={false} 
+        value="Marlison"
+      />
 
-      <TextInput placeholder="E-mail" autoCorrect={false} />
+      <TextInput 
+        testID="input-surname" 
+        placeholder="E-mail" autoCorrect={false}
+        value="Mourão" 
+      />
 
-      <Button title='Salvar' onPress={() => {}} />
+      <Button title="Salvar" onPress={() => {}} />
     </View>
   );
 }
