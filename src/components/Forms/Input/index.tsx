@@ -1,12 +1,12 @@
 import React from "react";
-import { TextInputProps } from "react-native";
+import { TextInputProps, DocumentSelectionState } from "react-native";
 
 import { Container } from "./styles";
 
-type Props = TextInputProps;
+interface Props extends TextInputProps {
+  active?: boolean;
+}
 
-export function Input({...res}: Props) {
-  return <Container {...res} />
-    
-
+export function Input({ active = false, ...res }: Props) {
+  return <Container selectionState={undefined} active={active} {...res} />;
 }
