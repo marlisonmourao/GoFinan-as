@@ -32,7 +32,7 @@ export function HightlightCard({type, title, amount, lastTransaction} : Props) {
       </Header>
 
       <Footer>
-        <Amount>{amount}</Amount>
+        <Amount type={type}>{amount}</Amount>
         <LastTransaction type={type}>{lastTransaction}</LastTransaction>
       </Footer>
     </Container>
