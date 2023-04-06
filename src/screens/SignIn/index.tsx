@@ -76,20 +76,14 @@ export function SignIn() {
             activeOpacity={0.8}
             onPress={handleSignInWithGoogle}
           />
-          {/* { Platform.OS === 'ios' &&
+          { Platform.OS === 'ios' &&
             <SignInSocialButton
               title="Entrar com a Aplle"
               svg={AppleSvg}
               activeOpacity={0.8}
               onPress={handleSignInWithApple}
             />
-          } */}
-            <SignInSocialButton
-              title="Entrar com a Apple"
-              svg={AppleSvg}
-              activeOpacity={0.8}
-              onPress={handleSignInWithApple}
-            />
+          }
         </FooterWrapper>
 
         {isLoading && (
